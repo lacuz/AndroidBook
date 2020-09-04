@@ -1,0 +1,10 @@
+{
+    "title" : "Android架构养成记",
+    "author" : "Lacuz",
+    "description" : "android全栈技术",
+    "language" : "zh-hans",
+    "plugins": [
+    	"expandable-chapters",
+            "splitter"
+    ]
+}
