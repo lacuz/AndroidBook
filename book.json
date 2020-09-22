@@ -5,6 +5,8 @@
     "language" : "zh-hans",
     "plugins": [
     	"expandable-chapters",
-            "splitter"
+            "splitter",
+	"back-to-top-button",
+	"code"
     ]
 }
