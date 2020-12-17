@@ -14,6 +14,7 @@
     * [屏幕适配](性能优化/屏幕适配.md)
 * 奇妙的framework源码
     * Binder
+    * [Hander](奇妙的framework源码/Hander.md)
 * 实用工具
     * [文件目录](实用工具/文件目录.md)
     * [ADB](实用工具/ADB.md)
