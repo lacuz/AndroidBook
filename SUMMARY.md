@@ -18,6 +18,7 @@
 * 实用工具
     * [文件目录](实用工具/文件目录.md)
     * [ADB](实用工具/ADB.md)
+    * [AndroidStudio高级Debug调试技巧](实用工具/AndroidStudio高级Debug调试技巧.md)
 * 业务
     * [死亡问答](业务/死亡问答.md)
 * 开源框架
