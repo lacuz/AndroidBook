@@ -64,8 +64,6 @@ adb shell getprop sys.boot.reason
 
 adb shell input keyevent 键名
 
-KEYCODE_POWER 电源按钮
-KEYCODE_BACK 返回
 或者不需要加前缀KEYCODE_也可以
 
 adb shell input tap x y 点击事件
