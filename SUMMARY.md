@@ -1,9 +1,10 @@
 # Summary
 
 * [Introduction](README.md)
+* [协程](kotlin/协程.md)
 * java基础
     * [JVM](java基础/JVM.md)
-    * [内存模型(JMM)](java基础/内存模型(JMM).md)
+    * [内存模型(JMM)](java基础/内存模型(JMM))
 * 性能优化
     * [启动速度与执行效率优化](性能优化/启动速度与执行效率优化.md)
     * [布局检测与优化](性能优化/布局检测与优化.md)
@@ -15,6 +16,7 @@
 * 奇妙的framework源码
     * Binder
     * [Hander](奇妙的framework源码/Hander.md)
+    * [未整理](奇妙的framework源码/未整理.md)
 * 实用工具
     * [文件目录](实用工具/文件目录.md)
     * [ADB](实用工具/ADB.md)
@@ -27,7 +29,4 @@
 * 源码框架
     * 注入框架
     * RecyclerView
-     1.IoC，DI 理解它是什么了吗？
-2.如何玩转自定义注解?
-3.手写实现布局、控件、事件的注入框架
 
