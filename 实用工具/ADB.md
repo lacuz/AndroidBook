@@ -1,12 +1,6 @@
 # ADB
 
-
-|---|---|
-|查看日志			 	|adb logcat|
-|查看日志保存到指定文件	|adb logcat > D:/log.txt|
-|查看日志，过滤指定内容	|adb shell “logcat &#124;  grep com.lanyou.jvstapp” >D:/log.txt|
-|查看日志，过滤指定内容	|adb shell “logcat &#124;  grep com.lanyou.jvstapp  &#124; tee D:/log.txt”|
-|输出标签为TAG的log级别大于X的信息 | adb logcat Test:I |
+window下shell后面尽量加双引号
 
 adb reverse tcp:8081 tcp:8081 释放端口
 
@@ -38,8 +32,11 @@ adb shell pm uninstall -k --user 0 packageName -k表示保存数据
 adb shell pm list packages "xiaomi"
 
 
+## am
+ adb shell am force-stop 包名
+ adb shell am start -n 包名/Activity路径
 
-## dumps命令
+## dumps
 查看当前设备所运行的包名 ，activity名
 
 adb shell dumpsys window w | findstr name | findstr \/
@@ -48,3 +45,30 @@ adb shell dumpsys window w | findstr name | findstr \/
 ## getprop
 获取系统版本
 adb shell getprop ro.build.version.sdk
+查看设备重启的原因
+adb shell getprop sys.boot.reason
+
+## logcat
+
+|---|---|
+|查看日志			 	|adb logcat|
+|查看日志保存到指定文件	|adb logcat > D:/log.txt|
+|查看日志，过滤指定内容	|adb shell “logcat &#124;  grep com.lanyou.jvstapp” >D:/log.txt|
+|查看日志，过滤指定内容	|adb shell “logcat &#124;  grep com.lanyou.jvstapp  &#124; tee D:/log.txt”|
+|输出标签为TAG的log级别大于X的信息 | adb logcat Test:I |
+|修改日志缓存 | adb shell logcat -G  5M |
+|查看日志缓存 | adb shell logcat -g |
+
+
+## input
+
+adb shell input keyevent 键名
+
+或者不需要加前缀KEYCODE_也可以
+
+adb shell input tap x y 点击事件
+
+双击
+adb shell "input tap 1631 51 & input tap 1631 51"
+双击20次
+adb shell “seq 20 | while read i;do input tap 350 850 & input tap 350 850 & sleep 0.3;done”
