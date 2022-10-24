@@ -4,7 +4,6 @@
     "description" : "android全栈技术",
     "language" : "zh-hans",
     "plugins": [
-    	"expandable-chapters",
         "splitter",
 		"code",
 		"hide-element",
