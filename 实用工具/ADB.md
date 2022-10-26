@@ -13,6 +13,7 @@ adb shell uiautomator dump /sdcard/ui.xml 获取手机屏幕布局信息
 ## pm命令
 adb shell pm list packages [options] \<FILTER>
 
+||指令|
 |---|---|
 |获取所有应用信息|adb shell pm list packages |
 |输出包和包相关联的文件|adb shell pm list packages **-f**|
@@ -49,8 +50,8 @@ adb shell getprop ro.build.version.sdk
 adb shell getprop sys.boot.reason
 
 ## logcat
-
-|---|---|
+||指令|
+|:---|:---|
 |查看日志			 	|adb logcat|
 |查看日志保存到指定文件	|adb logcat > D:/log.txt|
 |查看日志，过滤指定内容	|adb shell “logcat &#124;  grep com.lanyou.jvstapp” >D:/log.txt|
