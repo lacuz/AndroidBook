@@ -54,7 +54,7 @@ adb shell getprop sys.boot.reason
 |:---|:---|
 |查看日志			 	|adb logcat|
 |查看日志保存到指定文件	|adb logcat > D:/log.txt|
-|查看日志，过滤指定内容	|adb shell “logcat &#124;  grep com.lanyou.jvstapp” >D:/log.txt|
+|查看日志，过滤指定内容	|adb shell “logcat -s *:E &#124;  grep com.lanyou.jvstapp” >D:/log.txt|
 |查看日志，过滤指定内容	|adb shell “logcat &#124;  grep com.lanyou.jvstapp  &#124; tee D:/log.txt”|
 |输出标签为TAG的log级别大于X的信息 | adb logcat Test:I |
 |修改日志缓存 | adb shell logcat -G  5M |
