@@ -92,3 +92,21 @@ adb shell input tap x y 点击事件
 adb shell "input tap 1631 51 & input tap 1631 51"
 双击20次
 adb shell “seq 20 | while read i;do input tap 350 850 & input tap 350 850 & sleep 0.3;done”
+
+
+## 重启adb
+adb kill-server
+
+adb start-server
+
+### 查看5554端口被哪个进程占用
+
+netstat -aon|findstr “5554”
+
+### 查看进程对应的应用
+
+tasklist|findstr “18956”
+
+### 杀对应的进程
+
+taskkill /T /F /PID 18956
