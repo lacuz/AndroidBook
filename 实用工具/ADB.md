@@ -63,6 +63,7 @@ adb shell getprop sys.boot.reason
 |输出标签为TAG的log级别大于X的信息 | adb logcat Test:I |
 |修改日志缓存 | adb shell logcat -G  5M |
 |查看日志缓存 | adb shell logcat -g |
+|打印奔溃日志 | adb shell logcat -v threadtime -b crash |
 
 ## 过滤日志
 ### （1）过滤特定内容的日志
