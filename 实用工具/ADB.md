@@ -42,6 +42,10 @@ adb shell pm list packages "xiaomi"
 
 adb shell dumpsys window w | findstr name | findstr \/
 
+查看包名版本
+
+adb shell pm dump 包名 | findstr version
+
 
 ## getprop
 获取系统版本
@@ -99,14 +103,27 @@ adb kill-server
 
 adb start-server
 
-### 查看5554端口被哪个进程占用
 
-netstat -aon|findstr “5554”
-
-### 查看进程对应的应用
-
-tasklist|findstr “18956”
 
 ### 杀对应的进程
-
+netstat -aon|findstr “5554”
+tasklist|findstr “18956”
 taskkill /T /F /PID 18956
+
+
+遇到da重复重启时，试一下输入这个命令：adb shell setprop persist.sys.disable_rescue true
+
+
+## 录制屏幕
+```bat
+#!/bin/sh
+echo %time%
+echo %date%
+#小时暂时不要
+set h=%time:~0,2%
+set name=%date:~0,4%%date:~5,2%%date:~8,2%%time:~3,2%%time:~6,2%.png
+echo %name%
+adb shell /system/bin/screencap  -p  /sdcard/%name%
+adb pull /sdcard/%name% D:\screenrecord/
+WS
+```
