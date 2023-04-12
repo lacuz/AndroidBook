@@ -7,7 +7,11 @@ adb reverse tcp:8081 tcp:8081 释放端口
 
 adb shell uiautomator dump /sdcard/ui.xml 获取手机屏幕布局信息
 
+保留数据和缓存文件，重新安装，升级
+adb install -r test.apk
 
+卸载app但保留数据和缓存文件
+adb uninstall -k cnblogs.apk
 
 
 ## pm命令
@@ -28,6 +32,7 @@ adb shell pm list packages [options] \<FILTER>
 adb shell pm uninstall -k --user 0 packageName -k表示保存数据
 
 
+
 示例：
 列出所有包含小米的包
 adb shell pm list packages "xiaomi"
@@ -36,6 +41,10 @@ adb shell pm list packages "xiaomi"
 ## am
  adb shell am force-stop 包名
  adb shell am start -n 包名/Activity路径
+ adb shell am start -a android.intent.action.VIEW -d http://testerhome.com 启动默认浏览器打开一个网页例
+ adb shell am monitor        监控 crash 与 ANR
+ adb shell am startservice    启动一个服务
+ adb shell am broadcast       发送一个广播
 
 ## dumps
 查看当前设备所运行的包名 ，activity名
@@ -46,12 +55,53 @@ adb shell dumpsys window w | findstr name | findstr \/
 
 adb shell pm dump 包名 | findstr version
 
+## wm
+查看分辨率：wm size
+修改分辨率：wm size 1440x2560
+还原初设置：wm size reset
+查看密度：wm density
+修改密度：wm density 480
+还原设置：wm density reset
 
 ## getprop
-获取系统版本
+获取系统api版本
 adb shell getprop ro.build.version.sdk
+获取系统版本
+adb shell getprop ro.build.version.release
 查看设备重启的原因
 adb shell getprop sys.boot.reason
+获取手机相关制造商信息
+adb shell "getprop | grep -E model\|version.sdk\|manufacturer\|hardware\|platform\|revision\|serialno\|product.name\|brand"
+获取手机系统信息（ CPU，厂商名称等）
+adb shell "cat /system/build.prop | grep "product""
+获取手机设备型号
+adb shell getprop ro.product.model
+获取手机的序列号
+adb shell getprop ro.serialno
+adb get-serialno
+获取手机MAC地址
+adb shell cat /sys/class/net/wlan0/address
+获取手机内存信息
+adb shell cat /proc/meminfo
+获取手机存储信息
+adb shell df
+获取手机内部存储信息
+adb shell df /data
+获取Android设备屏幕分辨率
+adb shell "dumpsys window | grep mUnrestrictedScreen"
+查看目录下的文件大小
+adb shell du -sh *
+查看正在运行的Services
+adb shell dumpsys activity services [<packagename>]
+查看正在运行的Activity
+adb shell dumpsys activity [<packagename>]
+
+## 删除命令
+adb shell 进入Android Linux命令中
+rm  -r  /mnt/sdcard/a.mp3 
+删除文件夹的时候需要加上-r参数 
+cd dir 
+rm *    删除dir中所有文件
 
 ## logcat
 ||指令|
@@ -84,6 +134,8 @@ $ 匹配字符串结束位置
 其中：
 ?! 表示非捕获元，匹配后面不是我们指定的内容的字符
 
+## ps
+执行 adb shell ps | grep adbd ，可以找到该后台进程，windows 请使用 findstr 替代 grep
 
 ## input
 
@@ -91,18 +143,30 @@ adb shell input keyevent 键名
 
 或者不需要加前缀KEYCODE_也可以
 
+adb shell input text +具体内容    发送文本内容，不能发送中文 
+
 adb shell input tap x y 点击事件
+
+adb shell input swipe 800 600 100 600 滑动事件  例如：从右往左滑动屏幕 
 
 双击
 adb shell "input tap 1631 51 & input tap 1631 51"
 双击20次
 adb shell “seq 20 | while read i;do input tap 350 850 & input tap 350 850 & sleep 0.3;done”
 
+## screencap
+adb shell screencap -p /sdcard/DCIM/screenTest.png
+## screenrecord
+adb shell screenrecord /sdcard/demo.mp4
+## ime
+adb shell ime list -s 列出设备上的输入法 
 
 ## 重启adb
 adb kill-server
 
 adb start-server
+
+
 
 
 
