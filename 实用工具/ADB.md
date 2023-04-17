@@ -192,3 +192,9 @@ adb shell /system/bin/screencap  -p  /sdcard/%name%
 adb pull /sdcard/%name% D:\screenrecord/
 WS
 ```
+
+
+## setting
+开启 Dark Mode: adb shell settings put secure ui_night_mode 2
+
+关闭 Dark Mode: adb shell settings put secure ui_night_mode 1
