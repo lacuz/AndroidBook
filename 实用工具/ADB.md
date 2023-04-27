@@ -7,9 +7,17 @@ adb reverse tcp:8081 tcp:8081 释放端口
 
 adb shell uiautomator dump /sdcard/ui.xml 获取手机屏幕布局信息
 
-保留数据和缓存文件，重新安装，升级
-adb install -r test.apk
 
+## install 
+adb install -r test.apk
+adb install -r 保留数据和缓存文件，重新安装，升级,替换已存在的应用程序，也就是说强制安装
+adb install -l 锁定该应用程序
+adb install -t 允许测试包
+adb install -s 把应用程序安装到sd卡上
+adb install -d 允许进行将见状，也就是安装的比手机上带的版本低
+adb install -g 为应用程序授予所有运行时的权限
+
+## uninstall
 卸载app但保留数据和缓存文件
 adb uninstall -k cnblogs.apk
 
