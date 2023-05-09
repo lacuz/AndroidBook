@@ -206,3 +206,6 @@ WS
 开启 Dark Mode: adb shell settings put secure ui_night_mode 2
 
 关闭 Dark Mode: adb shell settings put secure ui_night_mode 1
+
+## monkey
+adb shell monkey --throttle 100 --ignore-crashes --ignore-timeouts --ignore-security-exceptions --ignore-native-crashes --monitor-native-crashes -v -v -v 9999999 > d:\monkey.log
